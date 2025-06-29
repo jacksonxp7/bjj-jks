@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZR Jiu-Jitsu App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <!-- LOGO ADICIONADA AQUI -->
+            <img src="./WhatsApp Image 2025-06-24 at 19.19.25.jpeg" alt="Logo ZR Jiu-Jitsu - Voltar ao Início" id="home-logo" class="home-logo-icon">
+            <h1>Jiu-Jitsu JKS</h1>
+            <button id="config-btn" class="config-button">⚙️</button>
+            <nav id="main-nav">
+                <!-- As abas principais serão inseridas aqui pelo JavaScript -->
+            </nav>
+        </header>
+
+        <main id="content-display">
+            <!-- O conteúdo será carregado aqui dinamicamente -->
+            <div class="welcome-message">
+                <h2>Bem-vindo ao seu Guia de Jiu-Jitsu.</h2>
+                <p>Selecione uma categoria acima para começar.</p>
+                <!-- A imagem do logo foi movida para o header -->
+            </div>
+        </main>
+
+        <footer>
+            <p>Criado por JKS! para a comunidade do Jiu-Jitsu.</p>
+        </footer>
+    </div>
+
+    <!-- ===== JANELA MODAL DE CONFIGURAÇÃO (ESTRUTURA CORRETA) ===== -->
+    <div id="config-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-button">×</button>
+            <h2>Painel de Controle</h2>
+
+            <div class="config-section">
+                <h3>Adicionar Nova Categoria Principal</h3>
+                <form id="add-category-form">
+                    <input type="text" id="new-category-name" placeholder="Nome da Categoria (ex: Quedas)" required>
+                    <button type="submit">Adicionar Categoria</button>
+                </form>
+            </div>
+            
+            <div class="config-section">
+                <h3>Adicionar Grupo (dentro de uma Categoria)</h3>
+                <form id="add-subgroup-form">
+                    <select id="subgroup-category-select" required>
+                        <option value="">1º Selecione a Categoria Principal</option>
+                    </select>
+                    <input type="text" id="new-subgroup-name" placeholder="Nome do Grupo (ex: Montada, Guarda Aranha)" required>
+                    <button type="submit">Adicionar Grupo</button>
+                </form>
+            </div>
+
+            <!-- SEÇÃO PARA ADICIONAR TÉCNICAS (COM MÚLTIPLOS VÍDEOS) -->
+            <div class="config-section">
+                <h3>Adicionar Nova Técnica</h3>
+                <form id="add-technique-form">
+                    <select id="technique-category-select" required>
+                        <option value="">1º Selecione a Categoria Principal</option>
+                    </select>
+                    <select id="technique-subgroup-select">
+                        <option value="">(Opcional) 2º Selecione o Grupo</option>
+                    </select>
+                    <input type="text" id="new-technique-title" placeholder="3º Nome da Técnica (ex: Arm-lock voador)" required>
+                    
+                    <h4>Ataque</h4>
+                    <textarea id="attack-desc" placeholder="Descrição do ataque..." rows="3"></textarea>
+                    <div id="attack-videos-container" class="video-inputs-container">
+                        <!-- Inputs de vídeo de ataque serão adicionados aqui -->
+                    </div>
+                    <button type="button" class="add-video-btn" data-target="attack-videos-container">Adicionar Vídeo de Ataque +</button>
+
+                    <h4>Defesa / Saída</h4>
+                    <textarea id="defense-desc" placeholder="Descrição da defesa/saída..." rows="3"></textarea>
+                    <div id="defense-videos-container" class="video-inputs-container">
+                         <!-- Inputs de vídeo de defesa serão adicionados aqui -->
+                    </div>
+                    <button type="button" class="add-video-btn" data-target="defense-videos-container">Adicionar Vídeo de Defesa +</button>
+
+                    <button type="submit">Adicionar Técnica</button>
+                </form>
+            </div>
+
+            <div class="config-section">
+                <h3>Gerenciar Conteúdo</h3>
+                <div id="management-list">
+                    <!-- Lista de categorias e técnicas para apagar será inserida aqui -->
+                </div>
+            </div>
+             <div class="config-section">
+                <button id="reset-data-btn" class="danger-button">Resetar Todos os Dados</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
